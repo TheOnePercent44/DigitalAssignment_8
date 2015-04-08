@@ -39,21 +39,21 @@ Indirect.Game.prototype = {
 		map.setCollision(1, true, 'Background', true);
 	/////////////////////////////////////////////////////////////////////////////////
 		red = this.game.add.sprite(384, 120, 'redBlock');
-		blue = this.game.add.sprite(160, 640, 'blueBlock');
-		yellow = this.game.add.sprite(608, 640, 'yellowBlock');
+		blue = this.game.add.sprite(192, 640, 'blueBlock');
+		yellow = this.game.add.sprite(576, 640, 'yellowBlock');
 		this.game.physics.enable(red, Phaser.ARCADE);
 		this.game.physics.enable(blue, Phaser.ARCADE);
 		this.game.physics.enable(yellow, Phaser.ARCADE);
 	/////////////////////////////////////////////////////////////////////////////////
-		ryfearB = this.game.add.sprite(160, 820, 'textfield', [0]);
-		rbfearB = this.game.add.sprite(160, 872, 'textfield', [0]);
-		brfearB = this.game.add.sprite(160, 924, 'textfield', [0]);
-		byfearB = this.game.add.sprite(400, 820, 'textfield', [0]);
-		yrfearB = this.game.add.sprite(400, 872, 'textfield', [0]);
-		ybfearB = this.game.add.sprite(400, 924, 'textfield', [0]);
-		raggroB = this.game.add.sprite(600, 820, 'textfield', [0]);
-		baggroB = this.game.add.sprite(600, 872, 'textfield', [0]);
-		yaggroB = this.game.add.sprite(600, 924, 'textfield', [0]);
+		ryfearB = this.game.add.sprite(192, 820, 'textfield', [0]);
+		rbfearB = this.game.add.sprite(192, 872, 'textfield', [0]);
+		brfearB = this.game.add.sprite(192, 924, 'textfield', [0]);
+		byfearB = this.game.add.sprite(384, 820, 'textfield', [0]);
+		yrfearB = this.game.add.sprite(384, 872, 'textfield', [0]);
+		ybfearB = this.game.add.sprite(384, 924, 'textfield', [0]);
+		raggroB = this.game.add.sprite(576, 820, 'textfield', [0]);
+		baggroB = this.game.add.sprite(576, 872, 'textfield', [0]);
+		yaggroB = this.game.add.sprite(576, 924, 'textfield', [0]);
     },
 
     update: function () {
