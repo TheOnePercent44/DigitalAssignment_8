@@ -1,11 +1,11 @@
-Lottery.MainMenu = function (game) {
+Indirect.MainMenu = function (game) {
 	this.game = game;
 	this.music = null;
 	this.playButton = null;
 
 };
 
-Lottery.MainMenu.prototype = {
+Indirect.MainMenu.prototype = {
 
 	create: function () {
 

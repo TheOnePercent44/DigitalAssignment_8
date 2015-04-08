@@ -1,10 +1,10 @@
-var Lottery = {};
+var Indirect = {};
 
-Lottery.Boot = function (game) {
+Indirect.Boot = function (game) {
 
 };
 
-Lottery.Boot.prototype = {
+Indirect.Boot.prototype = {
 
     init: function () {
 
@@ -56,12 +56,12 @@ window.onload = function() {
 	var game = new Phaser.Game(704, 704, Phaser.AUTO, 'game');
 	//	Add the States your game has.
 	//	You don't have to do this in the html, it could be done in your Boot state too, but for simplicity I'll keep it here.
-	game.state.add('Boot', Lottery.Boot);
-	game.state.add('Preloader', Lottery.Preloader);
-	game.state.add('MainMenu', Lottery.MainMenu);
-	game.state.add('Game', Lottery.Game);
-	game.state.add('WinScreen', Lottery.WinScreen);
-	game.state.add('LoseScreen', Lottery.LoseScreen);
+	game.state.add('Boot', Indirect.Boot);
+	game.state.add('Preloader', Indirect.Preloader);
+	game.state.add('MainMenu', Indirect.MainMenu);
+	game.state.add('Game', Indirect.Game);
+	game.state.add('WinScreen', Indirect.WinScreen);
+	game.state.add('LoseScreen', Indirect.LoseScreen);
 	//	Now start the Boot state.
 	game.state.start('Boot');
 };
