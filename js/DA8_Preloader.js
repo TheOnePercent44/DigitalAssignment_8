@@ -22,7 +22,7 @@ Indirect.Preloader.prototype = {
 		this.load.image('blueBlock', 'assets/blueBlock_32x32.png');
 		//this.load.image('inactive', 'assets/greenRect_64x32.png');
 		//this.load.image('active', 'assets/redRect_64x32.png');
-		this.load.spritesheet('textfield', 'assets/buttonSheet.png');
+		this.load.spritesheet('textfield', 'assets/buttonSheet.png', 64, 32);
 	},
 
 	create: function () {

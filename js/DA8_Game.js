@@ -27,6 +27,8 @@ var layer, map;
 var red, blue, yellow;
 var ryfear, rbfear, brfear, byfear, yrfear, ybfear;
 var raggro, baggro, yaggro;
+var ryfearB, rbfearB, brfearB, byfearB, yrfearB, ybfearB;
+var raggroB, baggroB, yaggroB;
 Indirect.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -35,8 +37,23 @@ Indirect.Game.prototype = {
 		layer = map.createLayer('Background');
 		layer.resizeWorld();
 		map.setCollision(1, true, 'Background', true);
-		
-		red = this.game.add.sprite(45, 45, 'redBlock');
+	/////////////////////////////////////////////////////////////////////////////////
+		red = this.game.add.sprite(384, 120, 'redBlock');
+		blue = this.game.add.sprite(160, 640, 'blueBlock');
+		yellow = this.game.add.sprite(608, 640, 'yellowBlock');
+		this.game.physics.enable(red, Phaser.ARCADE);
+		this.game.physics.enable(blue, Phase.ARCADE);
+		this.game.physics.enable(yellow, Phase.ARCADE);
+	/////////////////////////////////////////////////////////////////////////////////
+		ryfearB = this.game.add.sprite(160, 820, 'textfield', [0]);
+		rbfearB = this.game.add.sprite(160, 852, 'textfield', [0]);
+		brfearB = this.game.add.sprite(160, 884, 'textfield', [0]);
+		byfearB = this.game.add.sprite(400, 820, 'textfield', [0]);
+		yrfearB = this.game.add.sprite(400, 852, 'textfield', [0]);
+		ybfearB = this.game.add.sprite(400, 884, 'textfield', [0]);
+		raggroB = this.game.add.sprite(600, 820, 'textfield', [0]);
+		baggroB = this.game.add.sprite(600, 852, 'textfield', [0]);
+		yaggroB = this.game.add.sprite(600, 884, 'textfield', [0]);
     },
 
     update: function () {
