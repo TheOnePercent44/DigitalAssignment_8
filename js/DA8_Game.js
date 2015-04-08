@@ -29,6 +29,8 @@ var ryfear, rbfear, brfear, byfear, yrfear, ybfear;
 var raggro, baggro, yaggro;
 var ryfearB, rbfearB, brfearB, byfearB, yrfearB, ybfearB;
 var raggroB, baggroB, yaggroB;
+var ryfearL, rbfearL, brfearL, byfearL, yrfearL, ybfearL;
+var raggroL, baggroL, yaggroL;
 var pauseFlag;//maybe while button is active?
 Indirect.Game.prototype = {
     create: function () {
@@ -85,9 +87,27 @@ Indirect.Game.prototype = {
 		raggroB.events.onInputDown.add(onDown, raggroB);
 		baggroB.events.onInputDown.add(onDown, baggroB);
 		yaggroB.events.onInputDown.add(onDown, yaggroB);
+	///////////////////////////////////////////////////////////////////////////////
+		ryfearL = this.game.add.text(192, 820, '0', {font: "15px Arial", fill: "#ffffff", align: "Center"});
+		rbfearL = this.game.add.text(192, 872, '0', 0);
+		brfearL = this.game.add.text(192, 924, '0', 0);
+		byfearL = this.game.add.text(384, 820, '0', 0);
+		yrfearL = this.game.add.text(384, 872, '0', 0);
+		ybfearL = this.game.add.text(384, 924, '0', 0);
+		raggroL = this.game.add.text(576, 820, '0', 0);
+		baggroL = this.game.add.text(576, 872, '0', 0);
+		yaggroL = this.game.add.text(576, 924, '0', 0);
     },
 
     update: function () {
+		if(!pauseFlag)
+		{
+			//do normal stuff
+		}
+		else
+		{
+			//do pause stuff
+		}
     },
 
     quitGame: function (pointer) {
@@ -104,9 +124,14 @@ Indirect.Game.prototype = {
 onDown = function(button)
 {
 	button.on = !button.on;
-	//button.setFrames(1, (button.on)?2:0, 2);
     if(button.on)
+	{
 		button.frame = 1;
+		pauseFlag = true;
+	}
 	else
+	{
 		button.frame = 0;
+		pauseFlag = false;
+	}
 }
