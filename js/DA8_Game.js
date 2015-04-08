@@ -29,6 +29,7 @@ var ryfear, rbfear, brfear, byfear, yrfear, ybfear;
 var raggro, baggro, yaggro;
 var ryfearB, rbfearB, brfearB, byfearB, yrfearB, ybfearB;
 var raggroB, baggroB, yaggroB;
+var pauseFlag;//maybe while button is active?
 Indirect.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -65,15 +66,15 @@ Indirect.Game.prototype = {
 		baggroB.on = false;
 		yaggroB.on = false;
 		
-		ryfearB.input.start();
-		rbfearB.input.start();
-		brfearB.input.start();
-		byfearB.input.start();
-		yrfearB.input.start();
-		ybfearB.input.start();
-		raggroB.input.start();
-		baggroB.input.start();
-		yaggroB.input.start();
+		ryfearB.inputEnabled = true;
+		rbfearB.inputEnabled = true;
+		brfearB.inputEnabled = true;
+		byfearB.inputEnabled = true;
+		yrfearB.inputEnabled = true;
+		ybfearB.inputEnabled = true;
+		raggroB.inputEnabled = true;
+		baggroB.inputEnabled = true;
+		yaggroB.inputEnabled = true;
 		
 		ryfearB.events.onInputDown.add(onDown, ryfearB);
 		rbfearB.events.onInputDown.add(onDown, rbfearB);
