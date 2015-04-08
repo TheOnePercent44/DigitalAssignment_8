@@ -32,7 +32,7 @@ var raggroB, baggroB, yaggroB;
 var ryfearL, rbfearL, brfearL, byfearL, yrfearL, ybfearL;
 var raggroL, baggroL, yaggroL;
 var pauseFlag;//maybe while button is active?
-var 0key, 1key, 2key, 3key, 4key, 5key, 6key, 7key, 8key, 9key;
+var key0, key1, key2, key3, key4, key5, key6, key7, key8, key9;
 Indirect.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -101,16 +101,16 @@ Indirect.Game.prototype = {
 		
 		setNums();
 	/////////////////////////////////////////////////////////////////////////////////
-		0key = this.game.input.keyboard.addKey(Phaser.Keyboard.0);
-		/*1key = 
-		2key = 
-		3key = 
-		4key = 
-		5key = 
-		6key = 
-		7key = 
-		8key = 
-		9key = */
+		key0 = this.game.input.keyboard.addKey(Phaser.Keyboard.0);
+		/*key1 = 
+		key2 = 
+		key3 = 
+		key4 = 
+		key5 = 
+		key6 = 
+		key7 = 
+		key8 = 
+		key9 = */
     },
 
     update: function () {
