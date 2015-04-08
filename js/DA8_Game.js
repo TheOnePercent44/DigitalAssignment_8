@@ -88,7 +88,7 @@ Indirect.Game.prototype = {
 		baggroB.events.onInputDown.add(onDown, baggroB);
 		yaggroB.events.onInputDown.add(onDown, yaggroB);
 	///////////////////////////////////////////////////////////////////////////////
-		ryfearL = this.game.add.text(192, 820, '0', {font: "15px Arial", fill: "#ffffff", align: "Center"});
+		ryfearL = this.game.add.text(192, 820, '0', {font: "15px Arial", fill: "#ffffff", align: "Left"});
 		rbfearL = this.game.add.text(192, 872, '0', 0);
 		brfearL = this.game.add.text(192, 924, '0', 0);
 		byfearL = this.game.add.text(384, 820, '0', 0);
