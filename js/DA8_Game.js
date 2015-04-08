@@ -36,7 +36,7 @@ Indirect.Game.prototype = {
 		layer.resizeWorld();
 		map.setCollision(1, true, 'Background', true);
 		
-		red = this.game.add.sprite();
+		red = this.game.add.sprite(45, 45, 'redBlock');
     },
 
     update: function () {
