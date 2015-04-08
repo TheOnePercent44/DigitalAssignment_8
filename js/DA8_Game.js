@@ -32,6 +32,7 @@ var raggroB, baggroB, yaggroB;
 var ryfearL, rbfearL, brfearL, byfearL, yrfearL, ybfearL;
 var raggroL, baggroL, yaggroL;
 var pauseFlag;//maybe while button is active?
+var 0key, 1key, 2key, 3key, 4key, 5key, 6key, 7key, 8key, 9key;
 Indirect.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -87,7 +88,7 @@ Indirect.Game.prototype = {
 		raggroB.events.onInputDown.add(onDown, raggroB);
 		baggroB.events.onInputDown.add(onDown, baggroB);
 		yaggroB.events.onInputDown.add(onDown, yaggroB);
-	///////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////
 		ryfearL = this.game.add.text(192, 820, '0', 0);
 		rbfearL = this.game.add.text(192, 872, '0', 0);
 		brfearL = this.game.add.text(192, 924, '0', 0);
@@ -99,6 +100,17 @@ Indirect.Game.prototype = {
 		yaggroL = this.game.add.text(576, 924, '0', 0);
 		
 		setNums();
+	/////////////////////////////////////////////////////////////////////////////////
+		0key = this.game.input.keyboard.addKey(Phaser.Keyboard.0);
+		/*1key = 
+		2key = 
+		3key = 
+		4key = 
+		5key = 
+		6key = 
+		7key = 
+		8key = 
+		9key = */
     },
 
     update: function () {
@@ -109,7 +121,7 @@ Indirect.Game.prototype = {
 		else
 		{
 			//do pause stuff
-			//if(
+			
 		}
     },
 
