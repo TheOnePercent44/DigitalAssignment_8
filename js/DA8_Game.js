@@ -42,7 +42,7 @@ Indirect.Game.prototype = {
 		blue = this.game.add.sprite(160, 640, 'blueBlock');
 		yellow = this.game.add.sprite(608, 640, 'yellowBlock');
 		this.game.physics.enable(red, Phaser.ARCADE);
-		this.game.physics.enable(blue, Phase.ARCADE);
+		this.game.physics.enable(blue, Phaser.ARCADE);
 		this.game.physics.enable(yellow, Phase.ARCADE);
 	/////////////////////////////////////////////////////////////////////////////////
 		ryfearB = this.game.add.sprite(160, 820, 'textfield', [0]);
