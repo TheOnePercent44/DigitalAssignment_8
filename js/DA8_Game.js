@@ -109,7 +109,7 @@ Indirect.Game.prototype = {
 		else
 		{
 			//do pause stuff
-			if(
+			//if(
 		}
     },
 
