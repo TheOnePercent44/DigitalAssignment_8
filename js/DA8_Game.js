@@ -46,14 +46,14 @@ Indirect.Game.prototype = {
 		this.game.physics.enable(yellow, Phaser.ARCADE);
 	/////////////////////////////////////////////////////////////////////////////////
 		ryfearB = this.game.add.sprite(160, 820, 'textfield', [0]);
-		rbfearB = this.game.add.sprite(160, 852, 'textfield', [0]);
-		brfearB = this.game.add.sprite(160, 884, 'textfield', [0]);
+		rbfearB = this.game.add.sprite(160, 872, 'textfield', [0]);
+		brfearB = this.game.add.sprite(160, 924, 'textfield', [0]);
 		byfearB = this.game.add.sprite(400, 820, 'textfield', [0]);
-		yrfearB = this.game.add.sprite(400, 852, 'textfield', [0]);
-		ybfearB = this.game.add.sprite(400, 884, 'textfield', [0]);
+		yrfearB = this.game.add.sprite(400, 872, 'textfield', [0]);
+		ybfearB = this.game.add.sprite(400, 924, 'textfield', [0]);
 		raggroB = this.game.add.sprite(600, 820, 'textfield', [0]);
-		baggroB = this.game.add.sprite(600, 852, 'textfield', [0]);
-		yaggroB = this.game.add.sprite(600, 884, 'textfield', [0]);
+		baggroB = this.game.add.sprite(600, 872, 'textfield', [0]);
+		yaggroB = this.game.add.sprite(600, 924, 'textfield', [0]);
     },
 
     update: function () {
