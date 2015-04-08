@@ -38,9 +38,9 @@ Indirect.Game.prototype = {
 		layer.resizeWorld();
 		map.setCollision(1, true, 'Background', true);
 	/////////////////////////////////////////////////////////////////////////////////
-		red = this.game.add.sprite(384, 120, 'redBlock');
-		blue = this.game.add.sprite(192, 640, 'blueBlock');
-		yellow = this.game.add.sprite(576, 640, 'yellowBlock');
+		red = this.game.add.sprite(384, 192, 'redBlock');
+		blue = this.game.add.sprite(192, 576, 'blueBlock');
+		yellow = this.game.add.sprite(576, 576, 'yellowBlock');
 		this.game.physics.enable(red, Phaser.ARCADE);
 		this.game.physics.enable(blue, Phaser.ARCADE);
 		this.game.physics.enable(yellow, Phaser.ARCADE);
@@ -54,6 +54,36 @@ Indirect.Game.prototype = {
 		raggroB = this.game.add.sprite(576, 820, 'textfield', 0);
 		baggroB = this.game.add.sprite(576, 872, 'textfield', 0);
 		yaggroB = this.game.add.sprite(576, 924, 'textfield', 0);
+		
+		ryfearB.on = false;
+		rbfearB.on = false;
+		brfearB.on = false;
+		byfearB.on = false;
+		yrfearB.on = false;
+		ybfearB.on = false;
+		raggroB.on = false;
+		baggroB.on = false;
+		yaggroB.on = false;
+		
+		ryfearB.input.start();
+		rbfearB.input.start();
+		brfearB.input.start();
+		byfearB.input.start();
+		yrfearB.input.start();
+		ybfearB.input.start();
+		raggroB.input.start();
+		baggroB.input.start();
+		yaggroB.input.start();
+		
+		ryfearB.events.onInputDown.add(onDown, ryfearB);
+		rbfearB.events.onInputDown.add(onDown, rbfearB);
+		brfearB.events.onInputDown.add(onDown, brfearB);
+		byfearB.events.onInputDown.add(onDown, byfearB);
+		yrfearB.events.onInputDown.add(onDown, yrfearB);
+		ybfearB.events.onInputDown.add(onDown, ybfearB);
+		raggroB.events.onInputDown.add(onDown, raggroB);
+		baggroB.events.onInputDown.add(onDown, baggroB);
+		yaggroB.events.onInputDown.add(onDown, yaggroB);
     },
 
     update: function () {
@@ -69,3 +99,10 @@ Indirect.Game.prototype = {
     }
 
 };
+
+onDown = function(button)
+{
+	button.on = !button.on;
+	button.setFrames(1, (button.on)?2:0, 2);
+    button.frame = (button.on)?2:0;
+}
