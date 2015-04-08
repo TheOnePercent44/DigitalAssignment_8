@@ -111,6 +111,17 @@ Indirect.Game.prototype = {
 		key7 = 
 		key8 = 
 		key9 = */
+		
+		this.game.keyboard.onUpCallback = keyReleased;
+		/*key1 = 
+		key2 = 
+		key3 = 
+		key4 = 
+		key5 = 
+		key6 = 
+		key7 = 
+		key8 = 
+		key9 = */
     },
 
     update: function () {
@@ -135,6 +146,54 @@ Indirect.Game.prototype = {
     }
 
 };
+
+keyReleased = function(k)
+{
+	var templabel;
+	templabel = getActiveLabel();
+	if(k.keyCode == Phaser.Keyboard.ZERO)
+		templabel.text = '0';
+	else if(k.keyCode == Phaser.Keyboard.ONE)
+		templabel.text = '1';
+	else if(k.keyCode == Phaser.Keyboard.TWO)
+		templabel.text = '2';
+	else if(k.keyCode == Phaser.Keyboard.THREE)
+		templabel.text = '3';
+	else if(k.keyCode == Phaser.Keyboard.FOUR)
+		templabel.text = '4';
+	else if(k.keyCode == Phaser.Keyboard.FIVE)
+		templabel.text = '5';
+	else if(k.keyCode == Phaser.Keyboard.SIX)
+		templabel.text = '6';
+	else if(k.keyCode == Phaser.Keyboard.SEVEN)
+		templabel.text = '7';
+	else if(k.keyCode == Phaser.Keyboard.EIGHT)
+		templabel.text = '8';
+	else if(k.keyCode == Phaser.Keyboard.NINE)
+		templabel.text = '9';
+};
+
+getActiveLabel = function()
+{
+	if(ryfearB.on)
+		return ryfearL;
+	else if(rbfearB.on)
+		return rbfearL;
+	else if(brfearB.on)
+		return brfearL;
+	else if(byfearB.on)
+		return byfearL;
+	else if(yrfearB.on)
+		return yrfearL;
+	else if(ybfearB.on)
+		return ybfearL;
+	else if(raggroB.on)
+		return raggroL;
+	else if(baggroB.on)
+		return baggroL;
+	else if(yaggroB.on)
+		return yaggroL;
+}
 
 onDown = function(button)
 {
