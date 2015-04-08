@@ -112,7 +112,7 @@ Indirect.Game.prototype = {
 		key8 = 
 		key9 = */
 		
-		this.game.keyboard.onUpCallback = keyReleased;
+		this.game.input.keyboard.onUpCallback = keyReleased;
 		/*key1 = 
 		key2 = 
 		key3 = 
