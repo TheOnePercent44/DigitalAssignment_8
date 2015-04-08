@@ -104,6 +104,6 @@ Indirect.Game.prototype = {
 onDown = function(button)
 {
 	button.on = !button.on;
-	button.setFrames(1, (button.on)?2:0, 2);
+	//button.setFrames(1, (button.on)?2:0, 2);
     button.frame = (button.on)?2:0;
 }
