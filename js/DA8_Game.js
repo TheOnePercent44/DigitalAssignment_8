@@ -88,7 +88,7 @@ Indirect.Game.prototype = {
 		baggroB.events.onInputDown.add(onDown, baggroB);
 		yaggroB.events.onInputDown.add(onDown, yaggroB);
 	///////////////////////////////////////////////////////////////////////////////
-		ryfearL = this.game.add.text(192, 820, '0', {font: "15px Arial", fill: "#ffffff", align: "Left"});
+		ryfearL = this.game.add.text(192, 820, '0', 0);
 		rbfearL = this.game.add.text(192, 872, '0', 0);
 		brfearL = this.game.add.text(192, 924, '0', 0);
 		byfearL = this.game.add.text(384, 820, '0', 0);
@@ -97,6 +97,8 @@ Indirect.Game.prototype = {
 		raggroL = this.game.add.text(576, 820, '0', 0);
 		baggroL = this.game.add.text(576, 872, '0', 0);
 		yaggroL = this.game.add.text(576, 924, '0', 0);
+		
+		setNums();
     },
 
     update: function () {
@@ -107,6 +109,7 @@ Indirect.Game.prototype = {
 		else
 		{
 			//do pause stuff
+			if(
 		}
     },
 
@@ -123,15 +126,45 @@ Indirect.Game.prototype = {
 
 onDown = function(button)
 {
-	button.on = !button.on;
-    if(button.on)
+	var changeFlag = false;
+	if(!pauseFlag)
 	{
-		button.frame = 1;
-		pauseFlag = true;
+		button.on = !button.on;
+		changeFlag = true;
 	}
 	else
 	{
-		button.frame = 0;
-		pauseFlag = false;
+		if(button.on)
+		{
+			button.on = !button.on;
+			changeFlag = true;
+		}
 	}
+	if(changeFlag)
+	{
+		if(button.on)
+		{
+			button.frame = 1;
+			pauseFlag = true;
+		}
+		else
+		{
+			button.frame = 0;
+			pauseFlag = false;
+			setNums();
+		}
+	}
+};
+
+setNums = function()
+{
+	ryfear = parseInt(ryfearL.text);
+	rbfear = parseInt(rbfearL.text);
+	brfear = parseInt(brfearL.text);
+	byfear = parseInt(byfearL.text);
+	yrfear = parseInt(yrfearL.text);
+	ybfear = parseInt(ybfearL.text);
+	raggro = parseInt(raggroL.text);
+	baggro = parseInt(baggroL.text);
+	yaggro = parseInt(yaggroL.text);
 }
