@@ -101,7 +101,7 @@ Indirect.Game.prototype = {
 		
 		setNums();
 	/////////////////////////////////////////////////////////////////////////////////
-		key0 = this.game.input.keyboard.addKey(Phaser.Keyboard.0);
+		key0 = this.game.input.keyboard.addKey(Phaser.Keyboard.ZERO);
 		/*key1 = 
 		key2 = 
 		key3 = 
