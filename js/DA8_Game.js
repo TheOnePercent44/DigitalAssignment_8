@@ -119,7 +119,7 @@ Indirect.Game.prototype = {
 		blue.body.velocity.x = SPEED*((baggro+1)/10);
 		blue.body.velocity.y = 0;
 		yellow.body.velocity.x = 0;
-		yellow.body.velocity.y = SPEED((yaggro+1)/10);
+		yellow.body.velocity.y = SPEED*((yaggro+1)/10);
     },
 
     update: function () {
