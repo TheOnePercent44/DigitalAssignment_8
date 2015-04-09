@@ -32,7 +32,7 @@ var ryfearB, rbfearB, brfearB, byfearB, yrfearB, ybfearB;
 var raggroB, baggroB, yaggroB;
 var ryfearL, rbfearL, brfearL, byfearL, yrfearL, ybfearL;
 var raggroL, baggroL, yaggroL;
-var pauseFlag = true, pauseB;//maybe while button is active?
+var pauseFlag;//maybe while button is active?
 Indirect.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
