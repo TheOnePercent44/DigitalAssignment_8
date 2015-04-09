@@ -23,6 +23,7 @@ Indirect.Game = function (game) {
     //  But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
 
 };
+var SPEED = 600;
 var layer, map;
 var red, blue, yellow;
 var ryfear, rbfear, brfear, byfear, yrfear, ybfear;
@@ -112,17 +113,30 @@ Indirect.Game.prototype = {
 		this.game.add.text(484, 924, 'Yellow\nAggression', {font: "15px Arial", fill: "#ffffff", align: "left"});
 	/////////////////////////////////////////////////////////////////////////////////
 		this.game.input.keyboard.onUpCallback = keyReleased;
+	/////////////////////////////////////////////////////////////////////////////////
+		red.body.velocity.x = 0;
+		red.body.velocity.y = SPEED*((raggro+1)/10);
+		blue.body.velocity.x = SPEED*((baggro+1)/10);
+		blue.body.velocity.y = 0;
+		yellow.body.velocity.x = 0;
+		yellow.body.velocity.y = SPEED((yaggro+1)/10);
     },
 
     update: function () {
+		this.game.physics.arcade.collide(red, layer);
+		this.game.physics.arcade.collide(blue, layer);
+		this.game.physics.arcade.collide(yellow, layer);
 		if(!pauseFlag)
 		{
 			//do normal stuff
+			moveRed(this.game);
+			//moveBlue(this.game);
+			//moveYellow(this.game);
 		}
 		else
 		{
 			//do pause stuff
-			
+			//nothing needed, handled by button handlers
 		}
     },
 
@@ -136,6 +150,55 @@ Indirect.Game.prototype = {
     }
 
 };
+
+moveRed = function(game)
+{
+	var bluediff = raggro-rbfear;
+	var yelldiff = raggro-ryfear;
+	var bluedist = game.math.distance(red.x, red.y, blue.x, blue.y);//game.physics.arcade.distanceBetween(red,blue);
+	var yelldist = game.math.distance(red.x, red.y, yellow.x, yellow.y);//game.physics.arcade.distanceBetween(red, yellow);
+	
+	if(bluedist > yelldist)//blue is closest
+	{
+		var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);
+		if(bluediff > 0)//chase blue
+		{
+			this.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10);
+			this.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10);
+		}
+		else if(bluediff < 0)//flee blue
+		{
+			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((raggro+1)/10));
+			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((raggro+1)/10));
+		}
+		else//????
+		{
+			
+		}
+	}
+	else if(yelldist > bluedist)//yellow is closest
+	{
+		var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);
+		if(yelldiff > 0)//chase yellow
+		{
+			this.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10);
+			this.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10);
+		}
+		else if(yelldiff < 0)//flee yellow
+		{
+			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((raggro+1)/10));
+			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((raggro+1)/10));
+		}
+		else//????
+		{
+			
+		}
+	}
+	else//????
+	{
+		
+	}
+}
 
 keyReleased = function(k)
 {
