@@ -32,8 +32,7 @@ var ryfearB, rbfearB, brfearB, byfearB, yrfearB, ybfearB;
 var raggroB, baggroB, yaggroB;
 var ryfearL, rbfearL, brfearL, byfearL, yrfearL, ybfearL;
 var raggroL, baggroL, yaggroL;
-var pauseFlag;//maybe while button is active?
-var key0, key1, key2, key3, key4, key5, key6, key7, key8, key9;
+var pauseFlag = true, pauseB, pauseL;//maybe while button is active?
 Indirect.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -89,6 +88,11 @@ Indirect.Game.prototype = {
 		raggroB.events.onInputDown.add(onDown, raggroB);
 		baggroB.events.onInputDown.add(onDown, baggroB);
 		yaggroB.events.onInputDown.add(onDown, yaggroB);
+		
+		pauseB = this.game.add.sprite(704, 820, 'textfield', 0);
+		pauseL = this.game.add.text(704, 820, 'Pause', 0);
+		pauseB.inputEnabled = true;
+		pauseB.events.onInputDown.add(pauseEvent, pauseB);
 	/////////////////////////////////////////////////////////////////////////////////
 		ryfearL = this.game.add.text(192, 820, '0', 0);
 		rbfearL = this.game.add.text(192, 872, '0', 0);
@@ -377,16 +381,28 @@ onDown = function(button)
 		if(button.on)
 		{
 			button.frame = 1;
-			pauseFlag = true;
+			//pauseFlag = true;
 		}
 		else
 		{
 			button.frame = 0;
-			pauseFlag = false;
-			setNums();
+			//pauseFlag = false;
+			//setNums();
 		}
 	}
 };
+
+pauseEvent = function(button)
+{
+	pauseFlag = !pauseFlag;
+	if(pauseFlag)
+		button.frame = 1;
+	else
+	{
+		button.frame = 0;
+		setNums();
+	}
+}
 
 setNums = function()
 {
