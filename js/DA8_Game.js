@@ -168,8 +168,8 @@ moveRed = function(game)
 		}
 		else if(bluediff < 0)//flee blue
 		{
-			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((raggro+1)/10));
-			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((raggro+1)/10));
+			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((raggro+1)/10)));
+			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((raggro+1)/10)));
 		}
 		else//????
 		{
@@ -186,8 +186,8 @@ moveRed = function(game)
 		}
 		else if(yelldiff < 0)//flee yellow
 		{
-			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((raggro+1)/10));
-			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((raggro+1)/10));
+			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((raggro+1)/10)));
+			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((raggro+1)/10)));
 		}
 		else//????
 		{
@@ -212,8 +212,8 @@ moveBlue = function(game)
 		var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);
 		if(reddiff > 0)//chase blue
 		{
-			this.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10));
-			this.body.velocity.y = Math.sin(rotation)*(SPEED*((baggro+1)/10));
+			this.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10)));
+			this.body.velocity.y = Math.sin(rotation)*(SPEED*((baggro+1)/10)));
 		}
 		else if(reddiff < 0)//flee blue
 		{
