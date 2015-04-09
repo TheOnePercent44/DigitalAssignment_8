@@ -23,7 +23,7 @@ Indirect.Game = function (game) {
     //  But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
 
 };
-var SPEED = 600;
+var SPEED = 600, MINDIST = 200;
 var layer, map;
 var red, blue, yellow;
 var ryfear, rbfear, brfear, byfear, yrfear, ybfear;
@@ -122,12 +122,17 @@ Indirect.Game.prototype = {
 	/////////////////////////////////////////////////////////////////////////////////
 		this.game.input.keyboard.onUpCallback = keyReleased;
 	/////////////////////////////////////////////////////////////////////////////////
-		red.body.velocity.x = 0;
-		red.body.velocity.y = SPEED*((raggro+1)/10);
-		blue.body.velocity.x = SPEED*((baggro+1)/10);
-		blue.body.velocity.y = 0;
-		yellow.body.velocity.x = 0;
-		yellow.body.velocity.y = SPEED*((yaggro+1)/10);
+		var rotation = this.game.math.angleBetween(red.x, red.y, this.game.world.centerX, this.game.world.centerY);
+		red.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10));
+		red.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10));
+		
+		rotation = this.game.math.angleBetween(blue.x, blue.y, this.game.world.centerX, this.game.world.centerY);
+		blue.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10));
+		blue.body.velocity.y = Math.sin(rotation)*(SPEED*((baggro+1)/10));
+		
+		rotation = this.game.math.angleBetween(blue.x, blue.y, this.game.world.centerX, this.game.world.centerY);
+		yellow.body.velocity.x = Math.cos(rotation)*(SPEED*((yaggro+1)/10));
+		yellow.body.velocity.y = Math.sin(rotation)*(SPEED*((yaggro+1)/10));
     },
 
     update: function () {
@@ -164,6 +169,27 @@ Indirect.Game.prototype = {
     }
 
 };
+
+avoidWall = function(block, game)//repulse blocks from walls
+{
+	if(block.x < MINDIST)
+	{
+		block.body.velocity.x = block.body.velocity.x+SPEED;
+	}
+	else if(game.world.getBounds().x-block.x < MINDIST)
+	{
+		block.body.velocity.x = block.body.velocity.x-SPEED;
+	}
+	
+	if(block.y < MINDIST)
+	{
+		block.body.velocity.y = block.body.velocity.y+SPEED;
+	}
+	else if(game.world.getBounds.y-block.y < MINDIST)
+	{
+		block.body.velocity.y = block.body.velocity.y-SPEED;
+	}
+}
 
 moveRed = function(game)
 {
@@ -249,6 +275,8 @@ moveRed = function(game)
 		}
 		else{}//????
 	}
+	
+	avoidWall(red, game);
 };
 
 moveBlue = function(game)
@@ -323,6 +351,8 @@ moveBlue = function(game)
 		}
 		else{}//????
 	}
+	
+	avoidWall(blue, game);
 };
 
 moveYellow = function(game)
@@ -397,6 +427,8 @@ moveYellow = function(game)
 		}
 		else{}//????
 	}
+	
+	avoidWall(yellow, game);
 };
 
 keyReleased = function(k)
