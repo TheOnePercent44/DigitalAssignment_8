@@ -110,6 +110,22 @@ Indirect.Game.prototype = {
 		
 		if(parseInt(ryfearL.text) == NaN)
 			ryfearL.text = this.game.rnd.integerInRange(0, 9);
+		if(parseInt(rbfearL.text) == NaN)
+			ryfearL.text = this.game.rnd.integerInRange(0, 9);
+		if(parseInt(brfearL.text) == NaN)
+			ryfearL.text = this.game.rnd.integerInRange(0, 9);
+		if(parseInt(byfearL.text) == NaN)
+			ryfearL.text = this.game.rnd.integerInRange(0, 9);
+		if(parseInt(yrfearL.text) == NaN)
+			ryfearL.text = this.game.rnd.integerInRange(0, 9);
+		if(parseInt(ybfearL.text) == NaN)
+			ryfearL.text = this.game.rnd.integerInRange(0, 9);
+		if(parseInt(raggroL.text) == NaN)
+			ryfearL.text = this.game.rnd.integerInRange(0, 9);
+		if(parseInt(baggroL.text) == NaN)
+			ryfearL.text = this.game.rnd.integerInRange(0, 9);
+		if(parseInt(yaggroL.text) == NaN)
+			ryfearL.text = this.game.rnd.integerInRange(0, 9);
 		
 		setNums();
 		
