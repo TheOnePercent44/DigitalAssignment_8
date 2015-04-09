@@ -23,7 +23,7 @@ Indirect.Game = function (game) {
     //  But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
 
 };
-var SPEED = 400, MINDIST = 200;
+var SPEED = 200, MINDIST = 150;
 var layer, map;
 var red, blue, yellow;
 var ryfear, rbfear, brfear, byfear, yrfear, ybfear;
@@ -195,7 +195,7 @@ avoidWall = function(block, game)//repulse blocks from walls
 	{
 		block.body.velocity.x = block.body.velocity.x+SPEED;
 	}
-	else if(game.world.getBounds().x-block.x < MINDIST)
+	else if((game.world.getBounds().x-block.x) < MINDIST)
 	{
 		block.body.velocity.x = block.body.velocity.x-SPEED;
 	}
@@ -204,7 +204,7 @@ avoidWall = function(block, game)//repulse blocks from walls
 	{
 		block.body.velocity.y = block.body.velocity.y+SPEED;
 	}
-	else if(game.world.getBounds.y-block.y < MINDIST)
+	else if((game.world.getBounds().y-block.y) < MINDIST)
 	{
 		block.body.velocity.y = block.body.velocity.y-SPEED;
 	}
