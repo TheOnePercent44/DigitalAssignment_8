@@ -212,7 +212,7 @@ avoidWall = function(block, game)//repulse blocks from walls
 
 moveRed = function(game)
 {
-	var bluediff = raggro-rbfear;
+	var bluediff = raggro-rbfear;//red's aggression minus red's fear of blue
 	var yelldiff = raggro-ryfear;
 	var bluedist = game.math.distance(red.x, red.y, blue.x, blue.y);//game.physics.arcade.distanceBetween(red,blue);
 	var yelldist = game.math.distance(red.x, red.y, yellow.x, yellow.y);//game.physics.arcade.distanceBetween(red, yellow);
