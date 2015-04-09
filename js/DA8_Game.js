@@ -163,45 +163,82 @@ moveRed = function(game)
 	var bluedist = game.math.distance(red.x, red.y, blue.x, blue.y);//game.physics.arcade.distanceBetween(red,blue);
 	var yelldist = game.math.distance(red.x, red.y, yellow.x, yellow.y);//game.physics.arcade.distanceBetween(red, yellow);
 	
-	if(bluedist > yelldist)//blue is closest
+	if(yelldist > bluedist)//blue is closest
 	{
 		var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);
 		if(bluediff > 0)//chase blue
 		{
 			red.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10));
 			red.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10));
+			return;
 		}
 		else if(bluediff < 0)//flee blue
 		{
-			red.body.velocity.x = -(Math.cos(rotation)*(SPEED*((raggro+1)/10)));
-			red.body.velocity.y = -(Math.sin(rotation)*(SPEED*((raggro+1)/10)));
+			red.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(raggro+1))/10)));
+			red.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(raggro+1))/10)));
+			return;
 		}
-		else//????
+		else//we don't care about blue, our closes neighbor
 		{
-			
+			/*if(baggro-brfear > 0)//if blue is chasing red, and we don't care, flee
+			{
+				red.body.velocity.x = -(Math.cos(rotation)*(SPEED*((raggro+1)/10)));
+				red.body.velocity.y = -(Math.sin(rotation)*(SPEED*((raggro+1)/10)));
+			}
+			else//else if blue is fleeing red... ???
+			{
+				
+			}*/
 		}
 	}
-	else if(yelldist > bluedist)//yellow is closest
+	else if(bluedist > yelldist)//yellow is closest
 	{
 		var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);
 		if(yelldiff > 0)//chase yellow
 		{
 			red.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10));
 			red.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10));
+			return;
 		}
 		else if(yelldiff < 0)//flee yellow
 		{
-			red.body.velocity.x = -(Math.cos(rotation)*(SPEED*((raggro+1)/10)));
-			red.body.velocity.y = -(Math.sin(rotation)*(SPEED*((raggro+1)/10)));
+			red.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(raggro+1))/10)));
+			red.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(raggro+1))/10)));
+			return;
 		}
 		else//????
 		{
 			
 		}
 	}
-	else//????
+	else//blue and yellow are equidistant
 	{
-		
+		if(bluediff > 0 && bluediff > yelldiff)//we have more aggression towards blue than yellow and less fear
+		{
+			var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);//chase blue
+			red.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10));
+			red.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10));
+			return;
+		}
+		else if(bluediff <= 0 && bluediff > yelldiff)//we fear yellow more than blue with no aggression
+		{
+			var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);//flee yellow
+			red.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(raggro+1))/10)));
+			red.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(raggro+1))/10)));
+		}
+		else if(yelldiff > 0 && yelldiff > bluediff)//we have more aggression towards yellow than blue and less fear
+		{
+			var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);//chase yellow
+			red.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10));
+			red.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10));
+		}
+		else if(yelldiff <= 0 && yelldiff > bluediff)//we fear blue more than yellow with no aggression
+		{
+			var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);//flee blue
+			red.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(raggro+1))/10)));
+			red.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(raggro+1))/10)));
+		}
+		else{}//????
 	}
 };
 
@@ -212,25 +249,25 @@ moveBlue = function(game)
 	var reddist = game.math.distance(blue.x, blue.y, red.x, red.y);//game.physics.arcade.distanceBetween(red,blue);
 	var yelldist = game.math.distance(blue.x, blue.y, yellow.x, yellow.y);//game.physics.arcade.distanceBetween(red, yellow);
 	
-	if(reddist > yelldist)//blue is closest
+	if(yelldist > reddist)//red is closest
 	{
 		var rotation = game.math.angleBetween(blue.x, blue.y, red.x, red.y);
-		if(reddiff > 0)//chase blue
+		if(reddiff > 0)//chase red
 		{
 			blue.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10));
 			blue.body.velocity.y = Math.sin(rotation)*(SPEED*((baggro+1)/10));
 		}
-		else if(reddiff < 0)//flee blue
+		else if(reddiff < 0)//flee red
 		{
-			blue.body.velocity.x = -(Math.cos(rotation)*(SPEED*((baggro+1)/10)));
-			blue.body.velocity.y = -(Math.sin(rotation)*(SPEED*((baggro+1)/10)));
+			blue.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(baggro+1))/10)));
+			blue.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(baggro+1))/10)));
 		}
 		else//????
 		{
 			
 		}
 	}
-	else if(yelldist > reddist)//yellow is closest
+	else if(reddist > yelldist)//yellow is closest
 	{
 		var rotation = game.math.angleBetween(blue.x, blue.y, yellow.x, yellow.y);
 		if(yelldiff > 0)//chase yellow
@@ -240,8 +277,8 @@ moveBlue = function(game)
 		}
 		else if(yelldiff < 0)//flee yellow
 		{
-			blue.body.velocity.x = -(Math.cos(rotation)*(SPEED*((baggro+1)/10)));
-			blue.body.velocity.y = -(Math.sin(rotation)*(SPEED*((baggro+1)/10)));
+			blue.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(baggro+1))/10)));
+			blue.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(baggro+1))/10)));
 		}
 		else//????
 		{
@@ -250,7 +287,32 @@ moveBlue = function(game)
 	}
 	else//????
 	{
-		
+		if(reddiff > 0 && reddiff > yelldiff)//we have more aggression towards blue than yellow and less fear
+		{
+			var rotation = game.math.angleBetween(blue.x, blue.y, red.x, red.y);//chase blue
+			blue.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10));
+			blue.body.velocity.y = Math.sin(rotation)*(SPEED*((baggro+1)/10));
+			return;
+		}
+		else if(reddiff <= 0 && reddiff > yelldiff)//we fear yellow more than blue with no aggression
+		{
+			var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);//flee yellow
+			blue.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(baggro+1))/10)));
+			blue.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(baggro+1))/10)));
+		}
+		else if(yelldiff > 0 && yelldiff > reddiff)//we have more aggression towards yellow than blue and less fear
+		{
+			var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);//flee yellow
+			blue.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10));
+			blue.body.velocity.y = Math.sin(rotation)*(SPEED*((baggro+1)/10));
+		}
+		else if(yelldiff <= 0 && yelldiff > reddiff)//we fear red more than yellow with no aggression
+		{
+			var rotation = game.math.angleBetween(blue.x, blue.y, red.x, red.y);//flee red
+			blue.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(baggro+1))/10)));
+			blue.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(baggro+1))/10)));
+		}
+		else{}//????
 	}
 };
 
@@ -279,7 +341,7 @@ moveYellow = function(game)
 			
 		}
 	}
-	else if(bluedist > reddist)//yellow is closest
+	else if(bluedist > reddist)//blue is closest
 	{
 		var rotation = game.math.angleBetween(yellow.x, yellow.y, red.x, red.y);
 		if(bluediff > 0)//chase yellow
@@ -299,7 +361,32 @@ moveYellow = function(game)
 	}
 	else//????
 	{
-		
+		if(bluediff > 0 && bluediff > reddiff)//we have more aggression towards blue than red and less fear
+		{
+			var rotation = game.math.angleBetween(yellow.x, yellow.y, blue.x, blue.y);//chase blue
+			blue.body.velocity.x = Math.cos(rotation)*(SPEED*((yaggro+1)/10));
+			blue.body.velocity.y = Math.sin(rotation)*(SPEED*((yaggro+1)/10));
+			return;
+		}
+		else if(bluediff <= 0 && bluediff > yelldiff)//we fear red more than blue with no aggression
+		{
+			var rotation = game.math.angleBetween(yellow.x, yellow.y, red.x, red.y);//flee red
+			blue.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(yaggro+1))/10)));
+			blue.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(yaggro+1))/10)));
+		}
+		else if(reddiff > 0 && reddiff > bluediff)//we have more aggression towards red than blue and less fear
+		{
+			var rotation = game.math.angleBetween(yellow.x, yellow.y, red.x, red.y);//chase red
+			blue.body.velocity.x = Math.cos(rotation)*(SPEED*((yaggro+1)/10));
+			blue.body.velocity.y = Math.sin(rotation)*(SPEED*((yaggro+1)/10));
+		}
+		else if(reddiff <= 0 && reddiff > bluediff)//we fear blue more than red with no aggression
+		{
+			var rotation = game.math.angleBetween(yellow.x, yellow.y, blue.x, blue.y);//flee blue
+			blue.body.velocity.x = -(Math.cos(rotation)*(SPEED*((10-(yaggro+1))/10)));
+			blue.body.velocity.y = -(Math.sin(rotation)*(SPEED*((10-(yaggro+1))/10)));
+		}
+		else{}//????
 	}
 };
 
