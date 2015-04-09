@@ -363,18 +363,18 @@ getActiveLabel = function()
 onDown = function(button)
 {
 	var changeFlag = false;
-	if(!pauseFlag)
+	if(pauseFlag)
 	{
 		button.on = !button.on;
 		changeFlag = true;
 	}
 	else
 	{
-		if(button.on)
+		/*if(button.on)
 		{
 			button.on = !button.on;
 			changeFlag = true;
-		}
+		}*/
 	}
 	if(changeFlag)
 	{
