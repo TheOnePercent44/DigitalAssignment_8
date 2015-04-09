@@ -163,8 +163,8 @@ moveRed = function(game)
 		var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);
 		if(bluediff > 0)//chase blue
 		{
-			this.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10);
-			this.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10);
+			this.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10));
+			this.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10));
 		}
 		else if(bluediff < 0)//flee blue
 		{
@@ -181,8 +181,8 @@ moveRed = function(game)
 		var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);
 		if(yelldiff > 0)//chase yellow
 		{
-			this.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10);
-			this.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10);
+			this.body.velocity.x = Math.cos(rotation)*(SPEED*((raggro+1)/10));
+			this.body.velocity.y = Math.sin(rotation)*(SPEED*((raggro+1)/10));
 		}
 		else if(yelldiff < 0)//flee yellow
 		{
@@ -198,7 +198,105 @@ moveRed = function(game)
 	{
 		
 	}
-}
+};
+
+moveBlue = function(game)
+{
+	var reddiff = baggro-brfear;
+	var yelldiff = baggro-byfear;
+	var reddist = game.math.distance(blue.x, blue.y, red.x, red.y);//game.physics.arcade.distanceBetween(red,blue);
+	var yelldist = game.math.distance(blue.x, blue.y, yellow.x, yellow.y);//game.physics.arcade.distanceBetween(red, yellow);
+	
+	if(reddist > yelldist)//blue is closest
+	{
+		var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);
+		if(reddiff > 0)//chase blue
+		{
+			this.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10));
+			this.body.velocity.y = Math.sin(rotation)*(SPEED*((baggro+1)/10));
+		}
+		else if(reddiff < 0)//flee blue
+		{
+			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((baggro+1)/10));
+			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((baggro+1)/10));
+		}
+		else//????
+		{
+			
+		}
+	}
+	else if(yelldist > reddist)//yellow is closest
+	{
+		var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);
+		if(yelldiff > 0)//chase yellow
+		{
+			this.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10);
+			this.body.velocity.y = Math.sin(rotation)*(SPEED*((baggro+1)/10);
+		}
+		else if(yelldiff < 0)//flee yellow
+		{
+			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((baggro+1)/10));
+			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((baggro+1)/10));
+		}
+		else//????
+		{
+			
+		}
+	}
+	else//????
+	{
+		
+	}
+};
+
+moveYellow = function(game)
+{
+	var reddiff = yaggro-yrfear;
+	var bluediff = yaggro-ybfear;
+	var reddist = game.math.distance(yellow.x, yellow.y, red.x, red.y);//game.physics.arcade.distanceBetween(red,blue);
+	var bluedist = game.math.distance(yellow.x, yellow.y, blue.x, blue.y);//game.physics.arcade.distanceBetween(red, yellow);
+	
+	if(reddist > bluedist)//blue is closest
+	{
+		var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);
+		if(reddiff > 0)//chase blue
+		{
+			this.body.velocity.x = Math.cos(rotation)*(SPEED*((yaggro+1)/10);
+			this.body.velocity.y = Math.sin(rotation)*(SPEED*((yaggro+1)/10);
+		}
+		else if(reddiff < 0)//flee blue
+		{
+			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((yaggro+1)/10));
+			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((yaggro+1)/10));
+		}
+		else//????
+		{
+			
+		}
+	}
+	else if(bluedist > reddist)//yellow is closest
+	{
+		var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);
+		if(bluediff > 0)//chase yellow
+		{
+			this.body.velocity.x = Math.cos(rotation)*(SPEED*((yaggro+1)/10);
+			this.body.velocity.y = Math.sin(rotation)*(SPEED*((yaggro+1)/10);
+		}
+		else if(bluediff < 0)//flee yellow
+		{
+			this.body.velocity.x = -(Math.cos(rotation)*(SPEED*((yaggro+1)/10));
+			this.body.velocity.y = -(Math.sin(rotation)*(SPEED*((yaggro+1)/10));
+		}
+		else//????
+		{
+			
+		}
+	}
+	else//????
+	{
+		
+	}
+};
 
 keyReleased = function(k)
 {
