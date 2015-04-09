@@ -101,15 +101,15 @@ Indirect.Game.prototype = {
 		
 		setNums();
 		
-		this.game.add.text(100, 820, 'Red fears Yellow', {font: "15px Arial", fill: "#ffffff", align: "left"});
-		this.game.add.text(100, 872, 'Red fears Blue', {font: "15px Arial", fill: "#ffffff", align: "left"});
-		this.game.add.text(100, 924, 'Red Aggression', {font: "15px Arial", fill: "#ffffff", align: "left"});
-		this.game.add.text(292, 820, 'Blue fears Red', {font: "15px Arial", fill: "#ffffff", align: "left"});
-		this.game.add.text(292, 872, 'Blue fears Yellow', {font: "15px Arial", fill: "#ffffff", align: "left"});
-		this.game.add.text(292, 924, 'Blue Aggression', {font: "15px Arial", fill: "#ffffff", align: "left"});
-		this.game.add.text(484, 820, 'Yellow fears Red', {font: "15px Arial", fill: "#ffffff", align: "left"});
-		this.game.add.text(484, 872, 'Yellow fears Blue', {font: "15px Arial", fill: "#ffffff", align: "left"});
-		this.game.add.text(484, 924, 'Yellow Aggression', {font: "15px Arial", fill: "#ffffff", align: "left"});
+		this.game.add.text(100, 820, 'Red fears\nYellow', {font: "15px Arial", fill: "#ffffff", align: "left"});
+		this.game.add.text(100, 872, 'Red fears\nBlue', {font: "15px Arial", fill: "#ffffff", align: "left"});
+		this.game.add.text(100, 924, 'Red\nAggression', {font: "15px Arial", fill: "#ffffff", align: "left"});
+		this.game.add.text(292, 820, 'Blue fears\nRed', {font: "15px Arial", fill: "#ffffff", align: "left"});
+		this.game.add.text(292, 872, 'Blue fears\nYellow', {font: "15px Arial", fill: "#ffffff", align: "left"});
+		this.game.add.text(292, 924, 'Blue\nAggression', {font: "15px Arial", fill: "#ffffff", align: "left"});
+		this.game.add.text(484, 820, 'Yellow fears\nRed', {font: "15px Arial", fill: "#ffffff", align: "left"});
+		this.game.add.text(484, 872, 'Yellow fears\nBlue', {font: "15px Arial", fill: "#ffffff", align: "left"});
+		this.game.add.text(484, 924, 'Yellow\nAggression', {font: "15px Arial", fill: "#ffffff", align: "left"});
 	/////////////////////////////////////////////////////////////////////////////////
 		this.game.input.keyboard.onUpCallback = keyReleased;
     },
