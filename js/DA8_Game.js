@@ -23,7 +23,7 @@ Indirect.Game = function (game) {
     //  But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
 
 };
-var SPEED = 600, MINDIST = 200;
+var SPEED = 400, MINDIST = 200;
 var layer, map;
 var red, blue, yellow;
 var ryfear, rbfear, brfear, byfear, yrfear, ybfear;
@@ -107,6 +107,9 @@ Indirect.Game.prototype = {
 		raggroL = this.game.add.text(576, 820, this.game.rnd.integerInRange(0, 9), 0);
 		baggroL = this.game.add.text(576, 872, this.game.rnd.integerInRange(0, 9), 0);
 		yaggroL = this.game.add.text(576, 924, this.game.rnd.integerInRange(0, 9), 0);
+		
+		if(parseInt(ryfearL.text) == NaN)
+			ryfearL.text = this.game.rnd.integerInRange(0, 9);
 		
 		setNums();
 		
@@ -527,7 +530,7 @@ setNums = function()
 	baggro = parseInt(baggroL.text);
 	yaggro = parseInt(yaggroL.text);
 	
-	console.log("ryfear = "+ryfear);
+	/*console.log("ryfear = "+ryfear);
 	console.log("rbfear = "+rbfear);
 	console.log("brfear = "+brfear);
 	console.log("byfear = "+byfear);
@@ -535,5 +538,5 @@ setNums = function()
 	console.log("ybfear = "+ybfear);
 	console.log("raggro = "+raggro);
 	console.log("baggro = "+baggro);
-	console.log("yaggro = "+yaggro);
+	console.log("yaggro = "+yaggro);*/
 }
