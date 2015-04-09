@@ -89,7 +89,7 @@ Indirect.Game.prototype = {
 		baggroB.events.onInputDown.add(onDown, baggroB);
 		yaggroB.events.onInputDown.add(onDown, yaggroB);
 	/////////////////////////////////////////////////////////////////////////////////
-		ryfearL = this.game.add.text(192, 820, '0', 0);
+		/*ryfearL = this.game.add.text(192, 820, '0', 0);
 		rbfearL = this.game.add.text(192, 872, '0', 0);
 		brfearL = this.game.add.text(192, 924, '0', 0);
 		byfearL = this.game.add.text(384, 820, '0', 0);
@@ -97,7 +97,16 @@ Indirect.Game.prototype = {
 		ybfearL = this.game.add.text(384, 924, '0', 0);
 		raggroL = this.game.add.text(576, 820, '0', 0);
 		baggroL = this.game.add.text(576, 872, '0', 0);
-		yaggroL = this.game.add.text(576, 924, '0', 0);
+		yaggroL = this.game.add.text(576, 924, '0', 0);*/
+		ryfearL = this.game.add.text(192, 820, this.game.rnd.integerInRange(0, 9), 0);
+		rbfearL = this.game.add.text(192, 872, this.game.rnd.integerInRange(0, 9), 0);
+		brfearL = this.game.add.text(192, 924, this.game.rnd.integerInRange(0, 9), 0);
+		byfearL = this.game.add.text(384, 820, this.game.rnd.integerInRange(0, 9), 0);
+		yrfearL = this.game.add.text(384, 872, this.game.rnd.integerInRange(0, 9), 0);
+		ybfearL = this.game.add.text(384, 924, this.game.rnd.integerInRange(0, 9), 0);
+		raggroL = this.game.add.text(576, 820, this.game.rnd.integerInRange(0, 9), 0);
+		baggroL = this.game.add.text(576, 872, this.game.rnd.integerInRange(0, 9), 0);
+		yaggroL = this.game.add.text(576, 924, this.game.rnd.integerInRange(0, 9), 0);
 		
 		setNums();
 		
