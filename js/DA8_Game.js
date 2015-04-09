@@ -215,7 +215,7 @@ moveBlue = function(game)
 	
 	if(reddist > yelldist)//blue is closest
 	{
-		var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);
+		var rotation = game.math.angleBetween(blue.x, blue.y, red.x, red.y);
 		if(reddiff > 0)//chase blue
 		{
 			blue.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10));
@@ -233,7 +233,7 @@ moveBlue = function(game)
 	}
 	else if(yelldist > reddist)//yellow is closest
 	{
-		var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);
+		var rotation = game.math.angleBetween(blue.x, blue.y, yellow.x, yellow.y);
 		if(yelldiff > 0)//chase yellow
 		{
 			blue.body.velocity.x = Math.cos(rotation)*(SPEED*((baggro+1)/10));
@@ -264,7 +264,7 @@ moveYellow = function(game)
 	
 	if(reddist > bluedist)//blue is closest
 	{
-		var rotation = game.math.angleBetween(red.x, red.y, blue.x, blue.y);
+		var rotation = game.math.angleBetween(yellow.x, yellow.y, blue.x, blue.y);
 		if(reddiff > 0)//chase blue
 		{
 			yellow.body.velocity.x = Math.cos(rotation)*(SPEED*((yaggro+1)/10));
@@ -282,7 +282,7 @@ moveYellow = function(game)
 	}
 	else if(bluedist > reddist)//yellow is closest
 	{
-		var rotation = game.math.angleBetween(red.x, red.y, yellow.x, yellow.y);
+		var rotation = game.math.angleBetween(yellow.x, yellow.y, red.x, red.y);
 		if(bluediff > 0)//chase yellow
 		{
 			yellow.body.velocity.x = Math.cos(rotation)*(SPEED*((yaggro+1)/10));
