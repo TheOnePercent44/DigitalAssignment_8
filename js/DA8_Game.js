@@ -398,4 +398,14 @@ setNums = function()
 	raggro = parseInt(raggroL.text);
 	baggro = parseInt(baggroL.text);
 	yaggro = parseInt(yaggroL.text);
+	
+	console.log("ryfear = "+ryfear);
+	console.log("rbfear = "+rbfear);
+	console.log("brfear = "+brfear);
+	console.log("byfear = "+byfear);
+	console.log("yrfear = "+yrfear);
+	console.log("ybfear = "+ybfear);
+	console.log("raggro = "+raggro);
+	console.log("baggro = "+baggro);
+	console.log("yaggro = "+yaggro);
 }
